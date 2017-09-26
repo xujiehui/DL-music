@@ -2,7 +2,7 @@
 
 > A music web app
 >个人练习项目
->lowb分支 冲突测试
+>lowb分支 冲突测试 git pull 后再push
 
 ## Build Setup
 
