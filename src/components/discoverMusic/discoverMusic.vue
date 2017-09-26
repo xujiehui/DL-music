@@ -42,6 +42,7 @@ export default {
         color: #fff;
         &.active {
           border-bottom: 4px solid #000;
+          color: #000;
         }
       }
     }

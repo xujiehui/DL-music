@@ -22,7 +22,7 @@ const routes = [{
   children: [
     {
       path: '/discoverMusic/recommendedMusic',
-      component: RecommendedMusic      
+      component: RecommendedMusic
     },
     {
       path: '/discoverMusic/hotMusic',

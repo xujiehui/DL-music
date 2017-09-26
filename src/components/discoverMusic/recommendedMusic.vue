@@ -1,6 +1,6 @@
 <template>
     <div class="recommendedMusic">
-      <h3>最新歌单</h3>
+      <h3>最新歌单</h3>{{test}}
       <ul class="songList">
       	<li class="songList-item" v-for="songList in songLists">
       		<img v-bind:src="songList.imgUrl">
@@ -43,10 +43,16 @@
   			max-height: 100%;
   			max-width: 100%;
   		}
+  		p{
+  			display: -webkit-box;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        line-height: 1.2;
+  		}
   	}
   } 
-  .song{
-  	
+  .song{ 	
   	.song-item{
   		display: flex;
   		.song-info{
@@ -64,14 +70,14 @@
   			p{
   			color: #888;
   			font-size: 14px;
-  		    overflow: hidden;
+  		  overflow: hidden;
     		text-overflow: ellipsis;
     		white-space: nowrap;
   			}
   		}
   		.play-icon{
   			flex: 1 0 32px;
-			background:url(/static/play.png) no-repeat center;
+			  background:url(/static/play.png) no-repeat center;
   		}
   	}
   }	
@@ -79,61 +85,36 @@
 </style>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
-            songLists: [
-           	    {
-           			imgUrl: '/static/m-img.jpg',
-           			name: '长版｜听觉盛宴，不必喊停。'
-           		},
-           		{
-           		    imgUrl: '/static/m-img.jpg',
-           			name: '长版｜听觉盛宴，不必喊停。'
-           		},
-           		{
-           		    imgUrl: '/static/m-img.jpg',
-           			name: '长版｜听觉盛宴，不必喊停。'
-           		},
-           		{
-           		    imgUrl: '/static/m-img.jpg',
-           			name: '长版｜听觉盛宴，不必喊停。'
-           		},
-           		{
-           		    imgUrl: '/static/m-img.jpg',
-           			name: '长版｜听觉盛宴，不必喊停。'
-           		},
-           		{
-           		    imgUrl: '/static/m-img.jpg',
-           			name: '长版｜听觉盛宴，不必喊停。'
-           		}
-           	],
-           	songs: [
-           	    {
-           	    	name: '童话镇童话镇童话镇童话镇童话镇童话镇童话镇童话镇童话镇童话镇童话镇',
-           			singer: '陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿陈一发儿'
-           		},
-           		{
-           			name: 'fade',
-           			singer: 'Alan walker'
-           		},
-           		{
-           	    	name: '童话镇',
-           			singer: '陈一发儿'
-           		},
-           		{
-           			name: 'fade',
-           			singer: 'Alan walker'
-           		},
-           		{
-           	    	name: '童话镇',
-           			singer: '陈一发儿'
-           		},
-           		{
-           			name: 'fade',
-           			singer: 'Alan walker'
-           		}
-           	]
+            songLists: [],
+            songs: []
+        }
+    },
+    mounted: function() {
+        this.getPlayList()
+    },
+    methods: {
+        getPlayList: function() {
+            axios.get('http://47.93.96.159/api/musicAPI.php', {
+                params: {
+                    type: 'playlist',
+                    id: 3778678
+                }
+            })
+                .then(response => {
+                    let data = JSON.parse(response.data)
+                    let tracks = data['result']['tracks']
+                    for (let i = 0; i < tracks.length; i++) {
+                        let artists = tracks[i]['artists'][0]
+                        this.songs.push({
+                            name: tracks[i].name,
+                            singer: artists.name
+                        })
+                    }
+                })
         }
     }
 }
