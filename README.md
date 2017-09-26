@@ -1,8 +1,9 @@
-# DL-music
+﻿# DL-music
 
 > A music web app
-> 个人练习项目
-> 测试多人
+>> 个人练习项目
+>> lowb分支 冲突测试 git pull 后再push
+>> 合并
 
 ## Build Setup
 
