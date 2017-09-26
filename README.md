@@ -1,7 +1,8 @@
 # DL-music
 
 > A music web app
->个人练习项目
+> 个人练习项目
+> 测试多人
 
 ## Build Setup
 
