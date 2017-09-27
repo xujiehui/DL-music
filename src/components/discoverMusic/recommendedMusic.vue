@@ -1,6 +1,6 @@
 <template>
     <div class="recommendedMusic">
-      <h3>最新歌单</h3>{{test}}
+      <h3>最新歌单</h3>
       <ul class="songList">
       	<li class="songList-item" v-for="songList in songLists">
       		<img v-bind:src="songList.imgUrl">
@@ -93,15 +93,15 @@ export default {
             songs: []
         }
     },
-    mounted: function() {
+    created: function() {
         this.getPlayList()
     },
     methods: {
         getPlayList: function() {
-            axios.get('http://47.93.96.159/api/musicAPI.php', {
+            axios.get('http://localhost/api/musicAPI.php', {
                 params: {
                     type: 'playlist',
-                    id: 3778678
+                    id: 3779629
                 }
             })
                 .then(response => {

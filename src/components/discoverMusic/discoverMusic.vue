@@ -8,7 +8,7 @@
         		<router-link to="/discoverMusic/hotMusic">热歌榜</router-link>
       		</div>
       		<div class="tab-item">
-        		<a>搜索</a>
+        		<router-link to="/discoverMusic/searchMusic">搜索</router-link>
       		</div>     	
     	</div>
     	<transition name="fade" mode="out-in">
