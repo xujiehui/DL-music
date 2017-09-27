@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Account from '../components/account/account.vue'
 import DiscoverMusic from '../components/discoverMusic/discoverMusic.vue'
 import MyMusic from '../components/myMusic/myMusic.vue'
+import SearchMusic from '../components/discoverMusic/searchMusic.vue'
 import HotMusic from '../components/discoverMusic/hotMusic.vue'
 import RecommendedMusic from '../components/discoverMusic/recommendedMusic'
 
@@ -27,6 +28,10 @@ const routes = [{
     {
       path: '/discoverMusic/hotMusic',
       component: HotMusic
+    },
+    {
+      path: '/discoverMusic/searchMusic',
+      component: SearchMusic
     }
   ]
 },
