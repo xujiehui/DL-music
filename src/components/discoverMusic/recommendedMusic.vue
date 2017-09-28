@@ -1,6 +1,6 @@
 <template>
     <div class="recommendedMusic">
-      <h3>最新歌单</h3>
+      <h3>推荐歌单</h3>
       <ul class="songList">
       	<li class="songList-item" v-for="songList in songLists">
       		<img v-bind:src="songList.imgUrl">
@@ -18,6 +18,7 @@
       		</div>
       	</li>
       </ul>
+	  <loading v-if="isLoading"></loading>
       <div style="height:100px"></div>
     </div>
 </template>
@@ -28,7 +29,7 @@
   top: 35px;
   width: 100%;
   h3{
-  	padding-left: 1em;
+  	padding-left: 1rem;
   	border-left: 3px solid #000;
   	margin: 20px 0;
   }
@@ -56,7 +57,7 @@
   	.song-item{
   		display: flex;
   		.song-info{
-  			padding: 5px 0 5px 1em; 
+  			padding: 5px 0 5px 1rem; 
   			margin: 5px 0;
   			flex: 1 0 80%;
   			width: 80%;
@@ -86,11 +87,16 @@
 
 <script>
 import axios from 'axios'
+import loading from '../loading/loading'
 export default {
+    components: {
+        'loading': loading
+    },
     data() {
         return {
             songLists: [],
-            songs: []
+            songs: [],
+            isLoading: false
         }
     },
     created: function() {
@@ -98,6 +104,12 @@ export default {
     },
     methods: {
         getPlayList: function() {
+            axios.interceptors.response.use(response => {
+                this.isLoading = true
+                return response
+                }, function(error) {
+                    return Promise.reject(error)
+            })
             axios.get('http://localhost/api/musicAPI.php', {
                 params: {
                     type: 'playlist',
@@ -114,6 +126,7 @@ export default {
                             singer: artists.name
                         })
                     }
+                    this.isLoading = false
                 })
         }
     }

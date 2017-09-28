@@ -21,7 +21,7 @@ export default {
         background: url(/static/hotMusic.jpg) no-repeat center;
     }
     h3 {
-        padding-left: 1em;
+        padding-left: 1rem;
         border-left: 3px solid #000;
         margin: 20px 0;
     }
