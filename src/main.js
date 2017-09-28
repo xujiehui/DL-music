@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 
 import '../src/assets/less/reset.less'
+import 'font-awesome/css/font-awesome.min.css'
 
 Vue.config.productionTip = false
 
