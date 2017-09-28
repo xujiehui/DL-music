@@ -1,10 +1,6 @@
 <template>
     <div class="recommendedMusic">
-<<<<<<< HEAD
       <h3>推荐歌单</h3>
-=======
-      <h3>最新歌单</h3>
->>>>>>> d1b81a74dddcd6f3946646d4b034701713ee0c9a
       <ul class="songList">
       	<li class="songList-item" v-for="songList in songLists">
       		<img v-bind:src="songList.imgUrl">

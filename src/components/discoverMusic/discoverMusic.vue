@@ -1,21 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div class="discoverMusic">
-        <div class="discoverMusic-tab">
-      		<div class="tab-item">
-        		<router-link to="/discoverMusic/recommendedMusic">推荐音乐</router-link>
-      		</div>
-      		<div class="tab-item">
-        		<router-link to="/discoverMusic/hotMusic">热歌榜</router-link>
-      		</div>
-      		<div class="tab-item">
-        		<router-link to="/discoverMusic/searchMusic">搜索</router-link>
-      		</div>     	
-    	</div>
-    	<transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>   	
-=======
   <div class="discoverMusic">
     <div class="discoverMusic-tab">
       <div class="tab-item">
@@ -27,7 +10,6 @@
       <div class="tab-item">
         <router-link to="/discoverMusic/searchMusic">搜索</router-link>
       </div>
->>>>>>> d1b81a74dddcd6f3946646d4b034701713ee0c9a
     </div>
     <transition name="fade" mode="out-in">
       <router-view></router-view>
