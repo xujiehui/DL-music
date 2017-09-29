@@ -46,7 +46,7 @@ export default {
     width: 100%;
     height: 45px;
     line-height: 45px;
-    z-index: 10;
+    z-index: 5;
     background-color: #242424;
     .tab-item {
         flex: 1;
