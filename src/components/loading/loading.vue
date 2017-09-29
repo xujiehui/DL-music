@@ -20,23 +20,23 @@ export default {
     height: 32px;
     margin-left: -15vw;
     display: flex;
-    .play{
-        flex: 33%;
+    .play {
+        flex: 1;
         background: url(/static/music.png) no-repeat center;
         width: 32px;
         height: 32px;
     }
-    .play1{
+    .play1 {
         animation: move 1.5s ease-in infinite alternate;
     }
-    .play2{
+    .play2 {
         animation: move 1.5s ease-in-out infinite alternate;
     }
-    .play3{
+    .play3 {
         animation: move 1.5s ease-out infinite alternate;
     }
-    @keyframes move{
-        100%{
+    @keyframes move {
+        100% {
             transform: translateY(15vw);
         }
     }
