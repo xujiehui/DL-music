@@ -32,13 +32,73 @@
           </li>
         </ul>
       </div>
-      <div class="create-playlist">
-        <i class="fa fa-angle-right"></i>
-        <span>我创建的歌单</span>
+      <!-- 折叠面板 ：我创建的歌单 -->
+      <div class="create-collapse">
+        <div class="playlist-header" @click="createActive">
+          <i class="fa fa-angle-right" :class="{ 'fa-rotate-90' : isCreateActive }"></i>
+          <span>我创建的歌单</span>
+        </div>
+        <div class="playlist-body" :class="{ active : isCreateActive }">
+          <div class="inner">
+            <ul>
+              <li class="item">
+                <img src="../../assets/img/m-img.jpg" alt="歌单封面">
+                <div class="item-content">
+                  <span class="title">歌单的名称1</span>
+                  <span class="count">1926首</span>
+                </div>
+              </li>
+              <li class="item">
+                <img src="../../assets/img/m-img.jpg" alt="歌单封面">
+                <div class="item-content">
+                  <span class="title">歌单的名称2</span>
+                  <span class="count">2017首</span>
+                </div>
+              </li>
+              <li class="item">
+                <img src="../../assets/img/m-img.jpg" alt="歌单封面">
+                <div class="item-content">
+                  <span class="title">歌单的名称3</span>
+                  <span class="count">91首</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="collect-playlist">
-        <i class="fa fa-angle-right"></i>
-        <span>我收藏的歌单</span>
+      <!-- 折叠面板 ： 我收藏的歌单 -->
+      <div class="collect-collapse">
+        <div class="playlist-header" @click="collectActive">
+          <i class="fa fa-angle-right" :class="{ 'fa-rotate-90' : isCollectActive }"></i>
+          <span>我收藏的歌单</span>
+        </div>
+        <div class="playlist-body" :class="{active : isCollectActive}">
+          <div class="inner">
+            <ul>
+              <li class="item">
+                <img src="../../assets/img/m-img.jpg" alt="歌单封面">
+                <div class="item-content">
+                  <span class="title">歌单的名称1</span>
+                  <span class="count">1926首</span>
+                </div>
+              </li>
+              <li class="item">
+                <img src="../../assets/img/m-img.jpg" alt="歌单封面">
+                <div class="item-content">
+                  <span class="title">歌单的名称2</span>
+                  <span class="count">2017首</span>
+                </div>
+              </li>
+              <li class="item">
+                <img src="../../assets/img/m-img.jpg" alt="歌单封面">
+                <div class="item-content">
+                  <span class="title">歌单的名称3</span>
+                  <span class="count">91首</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -48,7 +108,9 @@
 export default {
   data() {
     return {
-      isActivePlay: false
+      isActivePlay: false,
+      isCreateActive: false,
+      isCollectActive: false
     }
   },
   methods: {
@@ -57,6 +119,12 @@ export default {
     },
     noSpin() {
       this.isActivePlay = false
+    },
+    createActive() {
+      this.isCreateActive = !this.isCreateActive
+    },
+    collectActive() {
+      this.isCollectActive = !this.isCollectActive
     }
   }
 }
@@ -112,14 +180,53 @@ export default {
         }
       }
     }
-    .create-playlist,
-    .collect-playlist {
-      padding: 8px;
-      padding-left: 15px;
-      font-size: 12px;
-      background: #eee;
-      i {
-        font-size: 14px;
+    .create-collapse,
+    .collect-collapse {
+      overflow: hidden;
+      .playlist-header {
+        padding: 8px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        background: #eee;
+        i {
+          font-size: 14px;
+          margin-right: 14px;
+          transition: all .25s;
+        }
+      }
+      .playlist-body {
+        max-height: 0;
+        transition: all .25s;
+        overflow: auto;
+        .inner {
+          padding: 8px 15px;
+          .item {
+            margin-bottom: 5px;
+            img {
+              width: 48px;
+              height: 48px;
+            }
+            .item-content {
+              display: inline-block;
+              vertical-align: top;
+              margin-left: 8px;
+              .title {
+                display: block;
+                font-size: 14px;
+                margin-top: 5px;
+              }
+              .count {
+                display: block;
+                margin-top: 15px;
+                font-size: 10px;
+                color: #666;
+              }
+            }
+          }
+        }
+        &.active {
+          max-height: 300px;
+        }
       }
     }
   }
