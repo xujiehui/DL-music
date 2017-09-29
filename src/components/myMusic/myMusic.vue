@@ -41,25 +41,43 @@
                 <div class="playlist-body" :class="{ active : isCreateActive }">
                     <div class="inner">
                         <ul>
-                            <li class="item">
-                                <img src="../../../static/m-img.jpg" alt="歌单封面">
-                                <div class="item-content">
-                                    <span class="title">歌单的名称1</span>
-                                    <span class="count">1926首</span>
+                            <li>
+                                <div class="item">
+                                    <a href="#">
+                                        <div class="preview">
+                                            <img src="../../../static/m-img.jpg" alt="歌单封面">
+                                        </div>
+                                    </a>
+                                    <div class="item-content">
+                                        <span class="title">歌单的名称1</span>
+                                        <span class="count">1926首</span>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <img src="../../../static/m-img.jpg" alt="歌单封面">
-                                <div class="item-content">
-                                    <span class="title">歌单的名称2</span>
-                                    <span class="count">2017首</span>
+                            <li>
+                                <div class="item">
+                                    <a href="#">
+                                        <div class="preview">
+                                            <img src="../../../static/m-img.jpg" alt="歌单封面">
+                                        </div>
+                                    </a>
+                                    <div class="item-content">
+                                        <span class="title">歌单的名称2</span>
+                                        <span class="count">2017首</span>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <img src="../../../static/m-img.jpg" alt="歌单封面">
-                                <div class="item-content">
-                                    <span class="title">歌单的名称3</span>
-                                    <span class="count">91首</span>
+                            <li>
+                                <div class="item">
+                                    <a href="#">
+                                        <div class="preview">
+                                            <img src="../../../static/m-img.jpg" alt="歌单封面">
+                                        </div>
+                                    </a>
+                                    <div class="item-content">
+                                        <span class="title">歌单的名称3</span>
+                                        <span class="count">91首</span>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -75,25 +93,43 @@
                 <div class="playlist-body" :class="{active : isCollectActive}">
                     <div class="inner">
                         <ul>
-                            <li class="item">
-                                <img src="../../../static/m-img.jpg" alt="歌单封面">
-                                <div class="item-content">
-                                    <span class="title">歌单的名称1</span>
-                                    <span class="count">1926首</span>
+                            <li>
+                                <div class="item">
+                                    <a href="#">
+                                        <div class="preview">
+                                            <img src="../../../static/m-img.jpg" alt="歌单封面">
+                                        </div>
+                                    </a>
+                                    <div class="item-content">
+                                        <span class="title">歌单的名称1</span>
+                                        <span class="count">1926首</span>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <img src="../../../static/m-img.jpg" alt="歌单封面">
-                                <div class="item-content">
-                                    <span class="title">歌单的名称2</span>
-                                    <span class="count">2017首</span>
+                            <li>
+                                <div class="item">
+                                    <a href="#">
+                                        <div class="preview">
+                                            <img src="../../../static/m-img.jpg" alt="歌单封面">
+                                        </div>
+                                    </a>
+                                    <div class="item-content">
+                                        <span class="title">歌单的名称2</span>
+                                        <span class="count">2017首</span>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <img src="../../../static/m-img.jpg" alt="歌单封面">
-                                <div class="item-content">
-                                    <span class="title">歌单的名称3</span>
-                                    <span class="count">91首</span>
+                            <li>
+                                <div class="item">
+                                    <a href="#">
+                                        <div class="preview">
+                                            <img src="../../../static/m-img.jpg" alt="歌单封面">
+                                        </div>
+                                    </a>
+                                    <div class="item-content">
+                                        <span class="title">歌单的名称3</span>
+                                        <span class="count">91首</span>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
