@@ -106,7 +106,6 @@ export default {
         border-left: 3px solid #000;
         margin: 20px 0;
     }
-<<<<<<< HEAD
     .searchTips{
         margin: 0 auto;
         p{
@@ -131,13 +130,6 @@ export default {
          width: 80%;
         input{
             width: 90%;
-=======
-    .searchInput {
-        margin: 0 auto;
-        width: 80%;
-        input {
-            width: 80%;
->>>>>>> a9de24bde95a44397ea3313d09ddbedcf87353fe
             height: 40px;
             line-height: 18px;
             background: #ebecec;
@@ -148,7 +140,6 @@ export default {
             outline: none;
         }
     }
-<<<<<<< HEAD
     .hotSearch{
         .hot-list{
             margin: 10px 1rem;
@@ -165,22 +156,6 @@ export default {
                 border-color: #d3d4da;
                 border-radius: 32px;
             }
-=======
-    .hot-list {
-        margin: 10px 1em;
-        .hot-item {
-            display: inline-block;
-            height: 32px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-            padding: 0 14px;
-            font-size: 14px;
-            line-height: 32px;
-            color: #333;
-            border: 1px solid;
-            border-color: #d3d4da;
-            border-radius: 32px;
->>>>>>> a9de24bde95a44397ea3313d09ddbedcf87353fe
         }
     }
   	.song-item {

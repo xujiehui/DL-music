@@ -1,6 +1,5 @@
 <template>
     <div class="recommendedMusic">
-<<<<<<< HEAD
       <h3>推荐歌单</h3>
       <ul class="songList">
       	<li class="songList-item" v-for="songList in songLists">
@@ -21,27 +20,6 @@
       </ul>
 	  <loading v-if="isLoading"></loading>
       <div style="height:100px"></div>
-=======
-        <h3>最新歌单</h3>
-        <ul class="songList">
-            <li class="songList-item" v-for="songList in songLists">
-                <img v-bind:src="songList.imgUrl">
-                <p>{{ songList.name }}</p>
-            </li>
-        </ul>
-        <h3>最新音乐</h3>
-        <ul class="song">
-            <li class="song-item" v-for="song in songs">
-                <div class="song-info">
-                    <h4>{{ song.name }}</h4>
-                    <p>{{ song.singer }}</p>
-                </div>
-                <div class="play-icon">
-                </div>
-            </li>
-        </ul>
-        <div style="height:100px"></div>
->>>>>>> a9de24bde95a44397ea3313d09ddbedcf87353fe
     </div>
 </template>
 
