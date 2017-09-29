@@ -26,10 +26,10 @@
         border-left: 3px solid #000;
         margin: 20px 0;
     }
-    .searchInput{
-         margin: 0 auto;
-         width: 80%;
-        input{
+    .searchInput {
+        margin: 0 auto;
+        width: 80%;
+        input {
             width: 80%;
             height: 40px;
             line-height: 18px;
@@ -39,11 +39,11 @@
             border-radius: 20px;
             padding-left: 10%;
             outline: none;
-            }
+        }
     }
-    .hot-list{
+    .hot-list {
         margin: 10px 1em;
-        .hot-item{
+        .hot-item {
             display: inline-block;
             height: 32px;
             margin-right: 8px;
