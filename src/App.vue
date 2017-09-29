@@ -2,13 +2,28 @@
   <div id="app">
     <div class="bottom-tab">
       <div class="tab-item">
-        <router-link :to="{ name : 'DiscoverMusic'}">发现音乐</router-link>
+        <router-link :to="{ name : 'DiscoverMusic'}">
+          <div class="item">
+            <i class="fa fa-globe"></i>
+            <span>发现音乐</span>
+          </div>
+        </router-link>
       </div>
       <div class="tab-item">
-        <router-link :to="{ name : 'MyMusic'}">我的音乐</router-link>
+        <router-link :to="{ name : 'MyMusic'}">
+          <div class="item">
+            <i class="fa fa-music"></i>
+            <span>我的音乐</span>
+          </div>
+        </router-link>
       </div>
       <div class="tab-item">
-        <router-link :to="{ name : 'Account'}">账号</router-link>
+        <router-link :to="{ name : 'Account'}">
+          <div class="item">
+            <i class="fa fa-user-o"></i>
+            <span>账号</span>
+          </div>
+        </router-link>
       </div>
     </div>
     <transition name="fade" mode="out-in">
@@ -43,6 +58,17 @@ export default {
       &.active {
         color: #fff;
         background: #000;
+      }
+      .item {
+        i {
+          display: inline-block;
+        }
+        span {
+          display: inline-block;
+          font-size: 12px;
+          margin: 0;
+          padding: 0;
+        }
       }
     }
   }
