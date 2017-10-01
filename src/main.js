@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import '../src/assets/less/reset.less'
 import 'font-awesome/css/font-awesome.min.css'
@@ -13,6 +14,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {
     App
