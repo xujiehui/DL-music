@@ -7,7 +7,9 @@
         <div class="page-content">
             <div class="song-wrapper">
                 <div class="song-img">
-                    <img :class=" isPlay? 'song-on': 'song-off' " v-bind:src="imgurl">
+                    <div :class=" isPlay? 'song-on': 'song-off' ">
+                        <img v-bind:src="imgurl">
+                    </div>
                 </div>
                 <div class="song-lyrics">
                     <p>这里是歌词</p>
@@ -20,6 +22,18 @@
             </div>
         </div>
         <div class="page-footer">
+            <div class="song-progressbar">
+                <div class="start">{{currentTime}}</div>
+                <div class="bar">
+                    <div class="rdy">
+
+                    </div>
+                    <div class="curr" ref="curr">
+
+                    </div>
+                </div>        
+                <div class="end">{{duration}}</div>
+            </div>
             <div class="song-control">
                 <div class="order">
                 </div>
@@ -36,6 +50,7 @@
         <div class="background-bottom-wrapper"></div>
         <div class="background-wrapper"></div>
         <div class="background-top-wrapper"></div>
+        <audio ref="audio" src="/static/tonghuazheng.flac" @timeupdate="update" @canplay="load" @ended="stop"></audio>
     </div>
 </template>
 
@@ -44,7 +59,9 @@ export default {
     data() {
         return {
             imgurl: '/static/m-img.jpg',
-            isPlay: false
+            isPlay: false,
+            currentTime: '',
+            duration: ''
         }
     },
     methods: {
@@ -52,13 +69,40 @@ export default {
             this.$emit('pageShow', false)
         },
         play() {
+            let audio = this.$refs.audio
+            this.isPlay ? audio.pause() : audio.play()
             this.isPlay = !this.isPlay
+        },
+        stop() {
+            this.isPlay = false
+        },
+        update() {
+            let audio = this.$refs.audio
+            let curr = this.$refs.curr
+            let pre = audio.currentTime / audio.duration
+            curr.style.width = pre * 100 + '%'
+            let min = Math.floor(audio.currentTime / 60)
+            let sec = Math.floor(audio.currentTime % 60) < 10 ? '0' + Math.floor(audio.currentTime % 60) : Math.floor(audio.currentTime % 60)
+            this.currentTime = min + ':' + sec
+            // console.log(pre)
+        },
+        load() {
+            let audio = this.$refs.audio
+            this.currentTime = '0:00'
+            let min = Math.floor(audio.duration / 60)
+            let sec = Math.floor(audio.duration % 60) < 10 ? '0' + Math.floor(audio.duration % 60) : Math.floor(audio.duration % 60)
+            this.duration = min + ':' + sec
         }
     }
 }
 </script>
 
 <style lang="less" scoped>
+img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+}
 .music-play-page {
     .background-wrapper {
         position: absolute;
@@ -122,17 +166,13 @@ export default {
             .song-img{
                 width: 100%;
                 .song-off{
-                    width: 50vw;
-                    height: 50vw;
-                    margin-left: 25vw;
-                    border-radius: 50%;
+                    width: 180px;
+                    margin: 0 auto;
                     animation: circling 20s infinite linear paused; 
                 }
                 .song-on{
-                    width: 50vw;
-                    height: 50vw;
-                    margin-left: 25vw; 
-                    border-radius: 50%;
+                    width: 180px;
+                    margin: 0 auto; 
                     animation: circling 20s infinite linear;
                 }
                 @keyframes circling {
@@ -166,6 +206,38 @@ export default {
         height: 80px;
         border: 1px solid #fff;
         border-radius: 10px;
+        .song-progressbar{
+            position: relative;
+            display: flex;
+            height: 10px;
+            width: 80%;
+            margin: 10px auto;
+            vertical-align: middle;
+            .start, .end{
+                flex: 10%;
+                line-height: 10px;
+                padding:0 5px;
+            }
+            .bar{
+                flex: 80%;
+                .rdy{
+                    z-index: 0;
+                    width: 100%;
+                    border-radius: 5px;
+                    height: 100%;
+                    background-color: #fff;
+                }
+                .curr{
+                    z-index: 1;
+                    border-radius: 5px;
+                    height: 100%;
+                    position: relative;
+                    top: -10px;
+                    width: 0;
+                    background-color: #000;
+                }
+            }
+        }
         .song-control{
             margin: 24px auto 0 auto;
             display: flex;
