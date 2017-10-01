@@ -81,16 +81,18 @@ export default {
             let curr = this.$refs.curr
             let pre = audio.currentTime / audio.duration
             curr.style.width = pre * 100 + '%'
-            let min = Math.floor(audio.currentTime / 60)
-            let sec = Math.floor(audio.currentTime % 60) < 10 ? '0' + Math.floor(audio.currentTime % 60) : Math.floor(audio.currentTime % 60)
+            let min = (audio.currentTime / 60) | 0
+            let sec = (audio.currentTime % 60) | 0
+            sec = sec < 10 ? '0' + sec : sec
             this.currentTime = min + ':' + sec
             // console.log(pre)
         },
         load() {
             let audio = this.$refs.audio
             this.currentTime = '0:00'
-            let min = Math.floor(audio.duration / 60)
-            let sec = Math.floor(audio.duration % 60) < 10 ? '0' + Math.floor(audio.duration % 60) : Math.floor(audio.duration % 60)
+            let min = (audio.duration / 60) | 0
+            let sec = (audio.duration % 60) | 0
+            sec = sec < 10 ? '0' + sec : sec
             this.duration = min + ':' + sec
         }
     }
